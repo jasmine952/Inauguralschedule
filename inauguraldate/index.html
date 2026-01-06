@@ -1,0 +1,56 @@
+<?php
+session_start();
+
+// Redirect if already logged in
+if (isset($_SESSION['staff_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+if (isset($_SESSION['admin_logged_in'])) {
+    header("Location: admin/dashboard.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Inaugural Booking</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    body {
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .get-started-btn {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      background-color: #0477e9;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
